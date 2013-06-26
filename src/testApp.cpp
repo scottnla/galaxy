@@ -33,16 +33,26 @@ void testApp::update(){
 void testApp::draw(){
   for(int i = 0; i < numStars; i++) {
     float color = 40000.0 / radius[i];
-    ofSetColor(color, color, color*0.9, 32);
+    ofSetColor(color*0.9, color, color, 32);
     ofFill();
     ofCircle(posX[i], posY[i], 2);
   }
-
 }
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-
+  if(key == OF_KEY_UP) {
+    eRatio *= 1.02;
+  }
+  if(key == OF_KEY_DOWN) {
+    eRatio /= 1.02;
+  }
+  if(key == OF_KEY_RIGHT) {
+    eTwist -= 0.001;
+  }
+  if(key == OF_KEY_LEFT) {
+    eTwist += 0.001;
+  }
 }
 
 //--------------------------------------------------------------
